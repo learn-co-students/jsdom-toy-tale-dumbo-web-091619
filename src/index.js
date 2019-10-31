@@ -17,10 +17,19 @@ document.addEventListener("DOMContentLoaded", ()=>{
 let toyDiv = document.getElementById("toy-collection")
 let toyIndex = "http://localhost:3000/toys"
 let toyButton = document.getElementById("new-toy-btn")
-
 let likeButton = document.getElementsByClassName("like-btn")
 
-function createToy(toy){
+// fetch to all elements for display
+fetch(toyIndex)
+.then(response => response.json())
+.then(resObj => {
+  resObj.forEach((toy) => {
+    displayToys(toy)
+  })
+})
+
+// display toys
+function displayToys(toy){
   let toyCard = document.createElement("div")
   toyCard.className = "card"
 
@@ -30,6 +39,8 @@ function createToy(toy){
   <button class="like-btn">Like <3</button>`
 
   toyDiv.append(toyCard)
+
+  //adding likes
   toyCard.addEventListener("click", (event) => {
     if (event.target.className === "like-btn") {
       let toyElement = toy
@@ -52,12 +63,8 @@ function createToy(toy){
   })
 }
 
-fetch(toyIndex)
-.then(response => response.json())
-.then(resObj => {
-  resObj.forEach((toy) => {createToy(toy)})
-})
 
+// Create new toy
 toyButton.addEventListener("click", (event) => {
   let toyForm = document.getElementsByClassName("add-toy-form")
   toyForm[0].addEventListener("submit", (event) => {
@@ -76,6 +83,6 @@ toyButton.addEventListener("click", (event) => {
       }
     })
     .then(r => r.json())
-    .then(createdToy => {createToy(createdToy)})
+    .then(createdToy => {displayToys(createdToy)})
   })
 })
