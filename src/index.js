@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     .then(function(response) {
       return response.json();
     })
-    .then(function(newToy){
-      newToy.forEach(function(newToy){
+    .then(function(newToys){
+      newToys.forEach(function(newToy){
         appendToy(newToy)
       })
       addLikeListener()
