@@ -104,7 +104,7 @@ function likeToy(evt){
    .then((toy) => {
 
     evt.target.previousElementSibling.innerText = `${toy.likes} likes`
-    
+
   })
 }
 
@@ -115,61 +115,3 @@ getToys().then((toyArr) => {
   toyArr.forEach(renderToys)
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let toyDiv = document.createElement('div')
-//      let toyName = document.createElement('h2')
-//      let toyImage = document.createElement('img')
-//      let toyLikes = document.createElement('p')
-//      let toyLikebutton = document.createElement('button')
-
-//      toyDiv.className = "card"
-
-//      toyName.innerText = toy.name
-
-//      toyImage.src = toy.image 
-//      toyImage.className = "toy-avatar"
-
-//      toyLikes.innerText = `${toy.likes} likes` 
-
-//      toyLikebutton.className = "like-btn"
-//      toyLikebutton.innerText = "Like"
-//      toyLikebutton.id = toy.id
-
-//      toyDiv.append(toyName,toyImage,toyLikes,toyLikebutton)
-
-//      toyCollectionDiv.append(toyDiv)
-
-//      toyLikebutton.addEventListener('click',(evt) => {
-//       // console.log(evt.target)
-      
-//      })
